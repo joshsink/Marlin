@@ -617,6 +617,10 @@
 // This option inserts short delays between lines of serial output.
 #define SERIAL_OVERRUN_PROTECTION
 
+// Bad Serial-connections can miss a received command by sending an 'ok'
+// Therefore some clients abort after 30 seconds in a timeout.
+// Some other clients start sending commands while receiving a 'wait'.
+// This "wait" is only sent when the buffer is empty. 1 second is a good value here.
 #define NO_TIMEOUTS 1000 // Milliseconds
 
 // @section extras
