@@ -617,7 +617,7 @@ void MarlinUI::quick_feedback(const bool clear_buttons/*=true*/) {
 
   #if HAS_ENCODER_ACTION
     if (clear_buttons) buttons = 0;
-    next_button_update_ms = millis() + 500;
+    next_button_update_ms = millis() + 100;
   #else
     UNUSED(clear_buttons);
   #endif
@@ -798,7 +798,7 @@ void MarlinUI::update() {
             if (touch_buttons & EN_A) encoderDiff *= -1;
             next_button_update_ms = ms + repeat_delay;  // Assume the repeat delay
             if (!wait_for_unclick && !arrow_pressed) {  // On click prepare for repeat
-              next_button_update_ms += 250;             // Longer delay on first press
+              next_button_update_ms += 100;             // Longer delay on first press
               arrow_pressed = true;                     // Mark arrow as pressed
               #if HAS_BUZZER
                 buzz(LCD_FEEDBACK_FREQUENCY_DURATION_MS, LCD_FEEDBACK_FREQUENCY_HZ);
